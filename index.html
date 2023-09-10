@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>検索web</title>
+  <link rel="icon" href="./AAA.ico">
+  <style type="text/css">
+    table, th, td {
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <h1>検 索 W E B</h1>
+  <a href="説.html">説明書、利用についてなど</a><br>
+  <label for="keyword">検索キーワードを入力してください：</label>
+  <input type="text" id="keyword" name="keyword" placeholder="検索キーワードを入力してください" onkeydown="if(event.keyCode == 13) search();">
+  <button type="button" onclick="search()">検索</button>
+  <br><br>
+  <table>
+    <tr>
+      <th>使用</th>
+      <th>検索エンジン</th>
+      <th>　　 URL　　 </th>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="google" name="google" checked></td>
+      <td>Google</td>
+      <td><a href="" id="google-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="bing" name="bing" checked></td>
+      <td>Bing</td>
+      <td><a href="" id="bing-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="yahoo" name="yahoo" checked></td>
+      <td>Yahoo!</td>
+      <td><a href="" id="yahoo-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="duckduckgo" name="duckduckgo" checked></td>
+      <td>DuckDuckGO</td>
+      <td><a href="" id="duckduckgo-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="brave" name="brave" checked></td>
+      <td>Brave</td>
+      <td><a href="" id="brave-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="excite" name="excite" checked></td>
+      <td>Excite</td>
+      <td><a href="" id="excite-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="lycos" name="lycos"></td>
+      <td>Lycos</td>
+      <td><a href="" id="lycos-url"></a></td>
+    </tr> 
+    <tr>
+      <td><input type="checkbox" id="youtube" name="youtube"></td>
+      <td>YouTube</td>
+      <td><a href="" id="youtube-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="twitter" name="twitter"></td>
+      <td>Twitter(X)</td>
+      <td><a href="" id="twitter-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="facebook" name="facebook"></td>
+      <td>FaceBook(Meta)</td>
+      <td><a href="" id="facebook-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="instagram" name="instagram"></td>
+      <td>Instagram</td>
+      <td><a href="" id="instagram-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="tiktok" name="tiktok"></td>
+      <td>TikTok</td>
+      <td><a href="" id="tiktok-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="amazon" name="amazon"></td>
+      <td>Amazon</td>
+      <td><a href="" id="amazon-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="wikipedia" name="wikipedia"></td>
+      <td>Wikipedia(JP)</td>
+      <td><a href="" id="wikipedia-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="google-play" name="google-play"></td>
+      <td>GooglePlay</td>
+      <td><a href="" id="google-play-url"></a></td>
+    </tr>
+    <tr>
+      <td><input type="checkbox" id="app-store" name="app-store"></td>
+      <td>AppStore</td>
+      <td><a href="" id="app-store-url"></a></td>
+    </tr>
+  </table>
+
+  <script>
+    // デフォルトでチェックされた検索エンジン
+    var defaultChecked = ["google", "bing", "yahoo", "duckduckgo", "brave", "excite"];
+
+    // 検索実行時の関数
+    function search() {
+      var keyword = document.getElementById("keyword").value;
+      var googleUrl = "https://www.google.com/search?q=" + keyword;
+      var bingUrl = "https://www.bing.com/search?q=" + keyword;
+      var yahooUrl = "https://search.yahoo.com/search?p=" + keyword;
+      var duckduckgoUrl = "https://duckduckgo.com/?q=" + keyword;
+      var braveUrl = "https://search.brave.com/search?q=" + keyword;
+      var exciteUrl = "https://results.excite.com/serp?q=" + keyword;
+      var lycosUrl = "https://search.lycos.com/web/?q=" + keyword;
+      var youtubeUrl = "https://www.youtube.com/results?search_query=" + keyword;
+      var twitterUrl = "https://twitter.com/search?q=" + keyword;
+      var facebookUrl = "https://www.facebook.com/search/top?q=" + keyword;
+      var instagramUrl = "https://www.instagram.com/explore/tags/" + keyword;
+      var tiktokUrl = "https://www.tiktok.com/tag/" + keyword;
+      var amazonUrl = "https://www.amazon.com/s?k=" + keyword;
+      var wikipediaUrl = "https://ja.wikipedia.org/w/index.php?search=" + keyword;
+      var googlePlayUrl = "https://play.google.com/store/search?q=" + keyword;
+      var appStoreUrl = "https://itunes.apple.com/search?term=" + keyword;
+
+      document.getElementById("google-url").innerText = googleUrl;
+      document.getElementById("google-url").href = googleUrl;
+      document.getElementById("bing-url").innerText = bingUrl;
+      document.getElementById("bing-url").href = bingUrl;
+      document.getElementById("yahoo-url").innerText = yahooUrl;
+      document.getElementById("yahoo-url").href = yahooUrl;
+      document.getElementById("duckduckgo-url").innerText = duckduckgoUrl;
+      document.getElementById("duckduckgo-url").href = duckduckgoUrl;
+      document.getElementById("brave-url").innerText = braveUrl;
+      document.getElementById("brave-url").href = braveUrl;
+      document.getElementById("excite-url").innerText = exciteUrl;
+      document.getElementById("excite-url").href = exciteUrl;
+      document.getElementById("lycos-url").innerText = lycosUrl;
+      document.getElementById("lycos-url").href = lycosUrl;
+      document.getElementById("youtube-url").innerText = youtubeUrl;
+      document.getElementById("youtube-url").href = youtubeUrl;
+      document.getElementById("twitter-url").innerText = twitterUrl;
+      document.getElementById("twitter-url").href = twitterUrl;
+      document.getElementById("facebook-url").innerText = facebookUrl;
+      document.getElementById("facebook-url").href = facebookUrl;
+      document.getElementById("instagram-url").innerText = instagramUrl;
+      document.getElementById("instagram-url").href = instagramUrl;
+      document.getElementById("tiktok-url").innerText = tiktokUrl;
+      document.getElementById("tiktok-url").href = tiktokUrl;
+      document.getElementById("amazon-url").innerText = amazonUrl;
+      document.getElementById("amazon-url").href = amazonUrl;
+      document.getElementById("wikipedia-url").innerText = wikipediaUrl;
+      document.getElementById("wikipedia-url").href = wikipediaUrl;
+      document.getElementById("google-play-url").innerText = googlePlayUrl;
+      document.getElementById("google-play-url").href = googlePlayUrl;
+      document.getElementById("app-store-url").innerText = appStoreUrl;
+      document.getElementById("app-store-url").href = appStoreUrl;
+
+      for(i = 0; i < defaultChecked.length; i++) {
+        if(document.getElementById(defaultChecked[i]).checked) {
+          var url = document.getElementById(defaultChecked[i] + "-url").href;
+          window.open(url, '_blank');
+        }
+      }
+
+      var additionalChecked = [];
+      var checkboxes = document.getElementsByTagName('input');
+      for(var i = 0, len = checkboxes.length; i < len; i++) {
+        if(checkboxes[i].type === 'checkbox' && checkboxes[i].id !== "google" && checkboxes[i].id !== "bing" && checkboxes[i].id !== "yahoo" && checkboxes[i].id !== "duckduckgo" && checkboxes[i].id !== "brave" && checkboxes[i].id !== "excite") {
+          if(document.getElementById(checkboxes[i].id).checked) {
+            additionalChecked.push(checkboxes[i].id);
+          }
+        }
+      }
+      for(i = 0; i < additionalChecked.length; i++) {
+        var url = document.getElementById(additionalChecked[i] + "-url").href;
+        window.open(url, '_blank');
+      }
+    }
+  </script>
+
+</body>
+</html>
